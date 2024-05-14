@@ -39,10 +39,7 @@ class _InboxState extends State<Inbox> {
                 const SizedBox(
                   width: 20,
                 ),
-                 const Text(
-                  "Reseller Profile",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
+               
                 const Text(
                   "Reseller Profile",
                   style: TextStyle(fontWeight: FontWeight.bold),
