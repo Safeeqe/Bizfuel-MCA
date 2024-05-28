@@ -1,3 +1,4 @@
+import 'package:bizfuel/Businesses/bizpost2.dart';
 import 'package:flutter/material.dart';
 
 class Bizpost extends StatefulWidget {
@@ -17,7 +18,7 @@ class _BizpostState extends State<Bizpost> {
           width: double.infinity,
           decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('images/background.jpeg'), fit: BoxFit.cover),
+                image: AssetImage('images/background.jpg'), fit: BoxFit.cover),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -149,23 +150,29 @@ class _BizpostState extends State<Bizpost> {
                 height: 60,
               ),
               Center(
-                  child: Container(
-                height: 30,
-                width: 120,
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 2, 124, 65),
-                    border: Border.all(),
-                    borderRadius: BorderRadius.circular(10)),
-                child: const Center(
-                    child: Text(
-                  "Next",
-                  style: TextStyle(color: Colors.white),
-                )),
+                  child: InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Bizpost2()));
+                },
+                child: Container(
+                  height: 30,
+                  width: 120,
+                  decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 2, 124, 65),
+                      border: Border.all(),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: const Center(
+                      child: Text(
+                    "Next",
+                    style: TextStyle(color: Colors.white),
+                  )),
+                ),
               )),
             ],
           ),
         ),
-     ),
-);
-}
+      ),
+    );
+  }
 }

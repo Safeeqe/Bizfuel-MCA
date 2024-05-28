@@ -1,8 +1,8 @@
+import 'package:bizfuel/Businesses/Bizpost3.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
-class Setlocation extends StatelessWidget {
-  const Setlocation({super.key});
+class Bizpost2 extends StatelessWidget {
+  const Bizpost2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,15 +10,15 @@ class Setlocation extends StatelessWidget {
       body: Container(
           height: double.infinity,
           width: double.infinity,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
                 image: AssetImage('images/background.jpg'), fit: BoxFit.cover),
           ),
           child: SingleChildScrollView(
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              const Padding(
-                padding: EdgeInsets.all(8.0),
+              Padding(
+                padding: const EdgeInsets.only(top: 40),
                 child: Row(
                   children: [
                     Icon(Icons.arrow_back),
@@ -33,10 +33,10 @@ class Setlocation extends StatelessWidget {
                   ],
                 ),
               ),
-              const Divider(
+              Divider(
                 color: Colors.black,
               ),
-              const Center(
+              Center(
                   child: Text(
                 'Set Location',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -50,8 +50,8 @@ class Setlocation extends StatelessWidget {
                         border: Border.all(),
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white),
-                    child: const Padding(
-                      padding: EdgeInsets.all(8.0),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -64,8 +64,8 @@ class Setlocation extends StatelessWidget {
                       ),
                     )),
               ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: Text('Recent'),
               ),
               Padding(
@@ -77,7 +77,7 @@ class Setlocation extends StatelessWidget {
                         border: Border.all(),
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white),
-                    child: const Row(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Icon(Icons.location_on_outlined),
@@ -97,7 +97,7 @@ class Setlocation extends StatelessWidget {
                         border: Border.all(),
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white),
-                    child: const Row(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Icon(Icons.location_on_outlined),
@@ -117,7 +117,7 @@ class Setlocation extends StatelessWidget {
                         border: Border.all(),
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white),
-                    child: const Row(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Icon(Icons.location_on_outlined),
@@ -128,8 +128,8 @@ class Setlocation extends StatelessWidget {
                       ],
                     )),
               ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: Text('Choose Region'),
               ),
               Padding(
@@ -141,8 +141,8 @@ class Setlocation extends StatelessWidget {
                         border: Border.all(),
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white),
-                    child: const Padding(
-                      padding: EdgeInsets.all(8.0),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -162,8 +162,8 @@ class Setlocation extends StatelessWidget {
                         border: Border.all(),
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white),
-                    child: const Padding(
-                      padding: EdgeInsets.all(8.0),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -183,8 +183,8 @@ class Setlocation extends StatelessWidget {
                         border: Border.all(),
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white),
-                    child: const Padding(
-                      padding: EdgeInsets.all(8.0),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -204,8 +204,8 @@ class Setlocation extends StatelessWidget {
                         border: Border.all(),
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white),
-                    child: const Padding(
-                      padding: EdgeInsets.all(8.0),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -216,22 +216,54 @@ class Setlocation extends StatelessWidget {
                       ),
                     )),
               ),
+              SizedBox(
+                height: 10,
+              ),
               Center(
-                child: Container(
-                  height: 40,
-                  width: 100,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.teal),
-                  child: TextButton(
-                      onPressed: () {},
-                      child: const Text(
+                // // child: InkWell(
+                // //   onTap: () {
+                // //     Navigator.push(context,
+                // //         MaterialPageRoute(builder: (context) => Bizpost3()));
+                // //   },
+                // child: GestureDetector(
+                //   onTap: () {
+                //     Navigator.push(context,
+                //         MaterialPageRoute(builder: (context) => Bizpost3()));
+                //   },
+                //   child: Container(
+                //     height: 40,
+                //     width: 100,
+                //     decoration: BoxDecoration(
+                //         borderRadius: BorderRadius.circular(10),
+                //         color: Colors.teal),
+                //     child: TextButton(
+                //         onPressed: () {},
+                //         child: Text(
+                //           'Next',
+                //           style: TextStyle(
+                //               color: Colors.black, fontWeight: FontWeight.bold),
+                //         )),
+                //   ),
+                // ),
+                child: SizedBox(
+                  width: 200,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.teal,
+                          foregroundColor: Colors.black,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(0))),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Bizpost3()));
+                      },
+                      child: Text(
                         'Next',
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
                       )),
                 ),
-              )
+              ),
             ]),
           )),
     );

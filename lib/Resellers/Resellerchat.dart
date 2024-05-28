@@ -99,7 +99,7 @@ class _ResellerchatState extends State<Resellerchat> {
                     }),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(2.0),
                 child: Row(
                   children: [
                     IconButton(
@@ -109,11 +109,16 @@ class _ResellerchatState extends State<Resellerchat> {
                           color: Colors.black,
                         )),
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.4,
-                      child: TextField(
+                      width: MediaQuery.of(context).size.width * 0.5,
+                      child: TextFormField(
                         textAlign: TextAlign.left,
                         decoration: InputDecoration(
                           filled: true,
+                          suffixIcon: IconButton(
+                              onPressed: () {},
+                              icon: IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(Icons.send_sharp))),
                           fillColor: Colors.white,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(25),
@@ -124,7 +129,6 @@ class _ResellerchatState extends State<Resellerchat> {
                         ),
                       ),
                     ),
-                    const Spacer(),
                     IconButton(
                         onPressed: () {},
                         icon: const Icon(

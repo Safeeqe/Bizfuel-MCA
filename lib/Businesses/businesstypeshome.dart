@@ -15,7 +15,7 @@ class Biztypes extends StatelessWidget {
                     fit: BoxFit.cover)),
             child: Column(children: const [
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.only(top: 35),
                 child: Row(
                   children: [
                     Icon(Icons.arrow_back),
@@ -49,6 +49,12 @@ class Biztypes extends StatelessWidget {
                         ),
                       ],
                     ),
+                  ),
+                  VerticalDivider(
+                    color: Colors.black,
+                    thickness: 3,
+                    width: 20,
+                    
                   ),
                   Padding(
                     padding: EdgeInsets.all(30),

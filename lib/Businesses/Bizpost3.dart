@@ -1,8 +1,5 @@
-import 'dart:ui';
-
+import 'package:bizfuel/Businesses/Myads1.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 
 class Bizpost3 extends StatefulWidget {
   const Bizpost3({super.key});
@@ -21,88 +18,87 @@ class _Bizpost3State extends State<Bizpost3> {
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('images/background.jpeg'), fit: BoxFit.cover),
+              image: AssetImage('images/background.jpg'), fit: BoxFit.cover),
         ),
-        child:  Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    Icon(Icons.arrow_back),
-                    SizedBox(
-                      width: 80,
-                    ),
-                    Text(
-                      'Business Post',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ],
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                Icon(Icons.arrow_back),
+                SizedBox(
+                  width: 80,
                 ),
-              ),
-              const Divider(
-                color: Colors.black,
-              ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    CircleAvatar(
-                      radius: 45,
-                      backgroundColor: Colors.amberAccent,
-                    ),
-                    Text("  Name:Gadgets")
-                  ],
+                Text(
+                  'Business Post',
+                  style: TextStyle(fontSize: 20),
                 ),
-              ),
-              const SizedBox(height: 20,),
-              const Text("   Verified Phone Number:",style: TextStyle(fontSize: 18),),
-              const SizedBox(height: 15,),
-              const Center(
-                child: SizedBox(
-                  width: 330,
-                  child: TextField(
-                    textAlign: TextAlign.left,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black),
-                      ),
-                      contentPadding: EdgeInsets.symmetric(vertical: 5),
-                    ),
+              ],
+            ),
+          ),
+          const Divider(
+            color: Colors.black,
+          ),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                CircleAvatar(
+                  radius: 45,
+                  backgroundColor: Colors.amberAccent,
+                ),
+                Text("  Name:Gadgets")
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          const Text(
+            "   Verified Phone Number:",
+            style: TextStyle(fontSize: 18),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          const Center(
+            child: SizedBox(
+              width: 330,
+              child: TextField(
+                textAlign: TextAlign.left,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black),
                   ),
+                  contentPadding: EdgeInsets.symmetric(vertical: 5),
                 ),
               ),
-              const SizedBox(height: 65,),
-              Center(
-                  child: Container(
-                height: 30,
-                width: 120,
-                decoration: BoxDecoration(boxShadow: const [
-                            BoxShadow(
-                                color: Colors.black,
-                                offset: Offset(1.0, 2.0),
-                                blurRadius: 3.0,
-                                spreadRadius: 0.0),
-                            BoxShadow(
-                                color: Colors.white,
-                                offset: Offset(0.0, 0.0),
-                                blurRadius: 0.0,
-                                spreadRadius: 0.0),
-                          ],
-                    color: const Color.fromARGB(255, 2, 124, 65),
-                    border: Border.all(),
-                    borderRadius: BorderRadius.circular(10)),
-                child: const Center(
-                    child: Text(
-                  "Post",
-                  style: TextStyle(color: Colors.white),
-                )),
-              )),
-            ]),
+            ),
+          ),
+          const SizedBox(
+            height: 400,
+          ),
+          Center(
+            child: SizedBox(
+              width: 200,
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.teal,
+                      foregroundColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(0))),
+                  onPressed: () {
+                    //Successfully posted msg
+                  },
+                  child: Text(
+                    'Post',
+                  )),
+            ),
+          )
+        ]),
       )),
-);
-}
+    );
+  }
 }

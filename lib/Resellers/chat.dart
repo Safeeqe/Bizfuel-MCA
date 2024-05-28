@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class Chats extends StatefulWidget {
-  const Chats({super.key});
+class Chat extends StatefulWidget {
+  const Chat({super.key});
 
   @override
-  State<Chats> createState() => _ChatsState();
+  State<Chat> createState() => _ChatState();
 }
 
-class _ChatsState extends State<Chats> {
+class _ChatState extends State<Chat> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -25,11 +25,6 @@ class _ChatsState extends State<Chats> {
             children: [
               Row(
                 children: [
-                  IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: Icon(Icons.arrow_back_outlined)),
                   const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: CircleAvatar(),
@@ -38,7 +33,7 @@ class _ChatsState extends State<Chats> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        " Josss",
+                        " Elegent Watches",
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 17,
@@ -103,7 +98,7 @@ class _ChatsState extends State<Chats> {
                     }),
               ),
               Padding(
-                padding: const EdgeInsets.all(2.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Row(
                   children: [
                     IconButton(
@@ -113,17 +108,11 @@ class _ChatsState extends State<Chats> {
                           color: Colors.black,
                         )),
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.5,
-                      child: TextFormField(
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      child: TextField(
                         textAlign: TextAlign.left,
                         decoration: InputDecoration(
                           filled: true,
-                          suffixIcon: IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.send_rounded,
-                                color: Colors.black,
-                              )),
                           fillColor: Colors.white,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(25),
@@ -134,6 +123,7 @@ class _ChatsState extends State<Chats> {
                         ),
                       ),
                     ),
+                    const Spacer(),
                     IconButton(
                         onPressed: () {},
                         icon: const Icon(

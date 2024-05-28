@@ -1,3 +1,4 @@
+import 'package:bizfuel/Resellers/resellerhomepage.dart';
 import 'package:flutter/material.dart';
 
 class Resellregistration extends StatefulWidget {
@@ -24,7 +25,7 @@ class _ResellregistrationState extends State<Resellregistration> {
               const Padding(
                 padding: EdgeInsets.only(top: 50),
                 child: Text(
-                  "Business Account  \n     Registration",
+                  "Reseller Account  \n     Registration",
                   style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -153,7 +154,13 @@ class _ResellregistrationState extends State<Resellregistration> {
                                             shape: RoundedRectangleBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(20))),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      Resellerhomepage()));
+                                        },
                                         child: const Text(
                                           "Submit",
                                           style: TextStyle(

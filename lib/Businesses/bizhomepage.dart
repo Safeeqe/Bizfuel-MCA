@@ -1,4 +1,9 @@
+import 'package:bizfuel/Businesses/buzbottomsheet.dart';
+import 'package:bizfuel/Businesses/otherbusinessesprofile.dart';
+import 'package:bizfuel/Businesses/requstedresellers.dart';
 import 'package:bizfuel/Businesses/resellers.dart';
+import 'package:bizfuel/Businesses/viewreseller.dart';
+import 'package:bizfuel/Resellers/resellerprofile.dart';
 import 'package:flutter/material.dart';
 
 class Bizhomepge extends StatefulWidget {
@@ -51,9 +56,20 @@ class _BizhomepgeState extends State<Bizhomepge> {
                     ),
                     const Spacer(),
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Requested_resellers()));
+                        },
                         icon: const Icon(
-                          Icons.notifications_none_outlined,
+                          Icons.person_add_alt_1,
+                          size: 32,
+                        )),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.notifications,
                           size: 32,
                         ))
                   ],
@@ -106,18 +122,27 @@ class _BizhomepgeState extends State<Bizhomepge> {
                                         mainAxisSpacing: 10),
                                 itemCount: 6,
                                 itemBuilder: (context, index) {
-                                  return Container(
-                                    color: Colors.white,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        const CircleAvatar(),
-                                        const SizedBox(
-                                          width: 5,
-                                        ),
-                                        Text(gridviewname[index])
-                                      ],
+                                  return InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ViewReseller()));
+                                    },
+                                    child: Container(
+                                      color: Colors.white,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          const CircleAvatar(),
+                                          const SizedBox(
+                                            width: 5,
+                                          ),
+                                          Text(gridviewname[index])
+                                        ],
+                                      ),
                                     ),
                                   );
                                 },
@@ -168,7 +193,13 @@ class _BizhomepgeState extends State<Bizhomepge> {
                                                                   11,
                                                                   175,
                                                                   159))),
-                                                  onPressed: () {},
+                                                  onPressed: () {
+                                                    Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                OtherBusinessProfile()));
+                                                  },
                                                   child: const Text(
                                                     "More",
                                                     style: TextStyle(
@@ -198,6 +229,7 @@ class _BizhomepgeState extends State<Bizhomepge> {
           ),
         ),
       ),
+      // bottomNavigationBar: BizbottomNavi(),
     );
   }
 }

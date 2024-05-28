@@ -1,4 +1,6 @@
+import 'package:bizfuel/Businesses/myads2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class Myads1 extends StatefulWidget {
   const Myads1({super.key});
@@ -8,6 +10,26 @@ class Myads1 extends StatefulWidget {
 }
 
 class _Myads1State extends State<Myads1> {
+  List<Map<String, String>> data = [
+    {
+      "name": "Elegent Watches",
+      "location": "Manjari,Kerala",
+      "img":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6iUVzhZCoi1gffBwqglkcayiWsNQDl-Ld3PZIDZGhEqqdljJeo4ocVt8dJGgEnkRIIa4&usqp=CAU"
+    },
+    {
+      "name": "Raman",
+      "location": "Kochi,Kerala",
+      "img":
+          "https://wallpapers.com/images/featured/cool-profile-picture-87h46gcobjl5e4xu.jpg"
+    },
+    {
+      "name": "Stepn",
+      "location": "Visitor",
+      "img":
+          "https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/e76d4296-43f3-493b-9d50-f8e5c142d06c/2117667014/boys-profile-picture-screenshot.png"
+    },
+  ];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -17,7 +39,7 @@ class _Myads1State extends State<Myads1> {
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('images/background.jpeg'), fit: BoxFit.cover),
+              image: AssetImage('images/background.jpg'), fit: BoxFit.cover),
         ),
         child: Column(
           children: [
@@ -53,85 +75,61 @@ class _Myads1State extends State<Myads1> {
             const SizedBox(
               height: 35,
             ),
-            Center(
-                child: Container(
-                    height: 80,
-                    width: 320,
-                    decoration: BoxDecoration(
-                        boxShadow: const [
-                          BoxShadow(
-                              color: Colors.black,
-                              offset: Offset(1.0, 2.0),
-                              blurRadius: 3.0,
-                              spreadRadius: 0.0),
-                          BoxShadow(
-                              color: Colors.white,
-                              offset: Offset(0.0, 0.0),
-                              blurRadius: 0.0,
-                              spreadRadius: 0.0),
-                        ],
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all()),
-                    child: const Row(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: CircleAvatar(
-                            backgroundColor: Colors.amberAccent,
-                            radius: 35,
+            Expanded(
+              child: Center(
+                child: ListView.builder(
+                    itemCount: data.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Myads2()));
+                          },
+                          child: Card(
+                            child: Container(
+                              width: double.infinity,
+                              height: 100,
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 20),
+                                    child: CircleAvatar(
+                                      radius: 30,
+                                      backgroundImage:
+                                          NetworkImage(data[index]['img']!),
+                                    ),
+                                    // child: Container(
+                                    //   width: 60,
+                                    //   height: 60,
+                                    //   decoration: BoxDecoration(
+                                    //       image: DecorationImage(
+                                    //           image: NetworkImage(
+                                    //               data[index]['img']!))),
+                                    // ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 17.0, left: 10),
+                                    child: Column(
+                                      children: [
+                                        Text(data[index]['name']!),
+                                        Text(data[index]['location']!),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                         ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text("   Elegent Watches"),
-                            Text("Kerala,Manjeri")
-                          ],
-                        )
-                      ],
-                    ))),
-            const SizedBox(
-              height: 30,
+                      );
+                    }),
+              ),
             ),
-            Center(
-                child: Container(
-                    height: 80,
-                    width: 320,
-                    decoration: BoxDecoration(
-                        boxShadow: const [
-                          BoxShadow(
-                              color: Colors.black,
-                              offset: Offset(1.0, 2.0),
-                              blurRadius: 3.0,
-                              spreadRadius: 0.0),
-                          BoxShadow(
-                              color: Colors.white,
-                              offset: Offset(0.0, 0.0),
-                              blurRadius: 0.0,
-                              spreadRadius: 0.0),
-                        ],
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all()),
-                    child: const Row(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: CircleAvatar(
-                            backgroundColor: Colors.amberAccent,
-                            radius: 35,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text("   Elegent Watches"),
-                            Text("Kerala,Manjeri")
-                          ],
-                        )
-                      ],
-                    ))),
           ],
         ),
       )),

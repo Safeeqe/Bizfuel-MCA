@@ -1,5 +1,6 @@
 import 'package:bizfuel/Businesses/bizhomepage.dart';
 import 'package:bizfuel/Businesses/bizregistration.dart';
+import 'package:bizfuel/Businesses/buzbottomsheet.dart';
 import 'package:bizfuel/login/home1.dart';
 import 'package:bizfuel/login/reset.dart';
 import 'package:bizfuel/login/tutorial.dart';
@@ -82,7 +83,7 @@ class _LoginState extends State<Login> {
                                 const MaterialStatePropertyAll(Colors.black)),
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => Bizhomepge()));
+                              builder: (context) => BizbottomNavi()));
                         },
                         child: const Text(
                           "Login",

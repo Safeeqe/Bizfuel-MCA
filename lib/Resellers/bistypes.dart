@@ -1,14 +1,14 @@
-import 'package:bizfuel/Businesses/Business_post.dart';
+import 'package:bizfuel/Resellers/itemview.dart';
 import 'package:flutter/material.dart';
 
-class Businesstype extends StatefulWidget {
-  const Businesstype({super.key});
+class Bistypes extends StatefulWidget {
+  const Bistypes({super.key});
 
   @override
-  State<Businesstype> createState() => _BusinesstypeState();
+  State<Bistypes> createState() => _BistypesState();
 }
 
-class _BusinesstypeState extends State<Businesstype> {
+class _BistypesState extends State<Bistypes> {
   List<String> buttonName = [
     'Car',
     'Properties',
@@ -48,7 +48,7 @@ class _BusinesstypeState extends State<Businesstype> {
         child: Column(
           children: [
             const Padding(
-              padding: EdgeInsets.only(top: 40.0),
+              padding: EdgeInsets.only(top: 50),
               child: Row(
                 children: [
                   Icon(Icons.arrow_back),
@@ -69,11 +69,14 @@ class _BusinesstypeState extends State<Businesstype> {
               child: ListView.separated(
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.only(
+                        bottom: 10, top: 0, left: 10, right: 10),
                     child: InkWell(
                       onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Bizpost()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Recommentation()));
                       },
                       child: Container(
                         decoration: BoxDecoration(
