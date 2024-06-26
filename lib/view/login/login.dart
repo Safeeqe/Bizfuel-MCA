@@ -22,7 +22,7 @@ class _LoginState extends State<Login> {
   final password = TextEditingController();
 
   final formkey = GlobalKey<FormState>();
-
+  bool _obscurePassword = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +57,7 @@ class _LoginState extends State<Login> {
                       controller: email,
                       decoration: const InputDecoration(
                           filled: true,
-                          hintText: "Mobile number or email id",
+                          hintText: "Email Address",
                           fillColor: Color.fromARGB(229, 255, 255, 255),
                           border: OutlineInputBorder(
                               borderRadius:
@@ -71,7 +71,20 @@ class _LoginState extends State<Login> {
                     padding: const EdgeInsets.only(left: 8, right: 8),
                     child: TextFormField(
                         controller: password,
-                        decoration: const InputDecoration(
+                        obscureText: _obscurePassword,
+                        decoration: InputDecoration(
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  _obscurePassword = !_obscurePassword;
+                                });
+                              },
+                              icon: Icon(
+                                _obscurePassword
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
+                              ),
+                            ),
                             filled: true,
                             hintText: "Password",
                             fillColor: Color.fromARGB(229, 255, 255, 255),

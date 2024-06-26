@@ -163,6 +163,7 @@ class _ViewitemDetailsState extends State<Viewitemdetails> {
                               style: TextStyle(fontSize: 20),
                             ));
                       }),
+
                 ]))));
   }
 }

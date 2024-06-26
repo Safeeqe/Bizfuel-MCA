@@ -1,12 +1,15 @@
 import 'package:bizfuel/model/businessregistration.dart';
 import 'package:bizfuel/model/userregitrationmodel.dart';
+import 'package:bizfuel/utils/string.dart';
 import 'package:bizfuel/view/modules/Businesses/otherbusinessesprofile.dart';
 import 'package:bizfuel/view/modules/Businesses/requstedresellers.dart';
 import 'package:bizfuel/view/modules/Businesses/resellers.dart';
 import 'package:bizfuel/view/modules/Businesses/viewreseller.dart';
 import 'package:bizfuel/viewmodel/firebasehelper.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class Bizhomepge extends StatefulWidget {
   const Bizhomepge({super.key});
@@ -152,7 +155,7 @@ class _BizhomepgeState extends State<Bizhomepge> {
                                               255, 220, 223, 166),
                                           borderRadius:
                                               BorderRadius.circular(20)),
-                                      child: Row(
+                                      child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
@@ -223,8 +226,12 @@ class _BizhomepgeState extends State<Bizhomepge> {
                                               children: [
                                                 Text(
                                                     "Name: ${document['businesname']}"),
-                                                Text(
-                                                    "Email: ${document['email']}"),
+                                                SizedBox(
+                                                  width: Helper.W(context) / 2,
+                                                  child: Text(
+                                                    "Email: ${document['email']}",
+                                                  ),
+                                                ),
                                               ],
                                             ),
                                             const Spacer(),

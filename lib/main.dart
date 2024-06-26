@@ -38,8 +38,10 @@ class MyApp extends StatelessWidget {
       ],
       child: const MaterialApp(
           debugShowCheckedModeBanner: false,
-          // home: Letsgo(),
-          home:  AdminFrontPage()),
+          home: Letsgo(),
+          // home:  AdminFrontPage()
+          
+          ),
     );
   }
 }

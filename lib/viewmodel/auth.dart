@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bizfuel/model/businessregistration.dart';
 import 'package:bizfuel/model/userregitrationmodel.dart';
 import 'package:bizfuel/utils/login_preference.dart';
@@ -25,6 +27,14 @@ class AuthControoler with ChangeNotifier {
       )
           .then(
         (value) {
+          value.user!.sendEmailVerification().then((value) {
+            log("success");
+            // CSnackbar.showSuccessToast(context, "Verify your email");
+          }).catchError((error) {
+            // CSnackbar.showErrorToast(context, error.toString());
+            log("error");
+          });
+
           authprvdr.addBusinessReg(
             BusinesRegistrationModel(
               businessName: businesname,
@@ -60,25 +70,33 @@ class AuthControoler with ChangeNotifier {
         User? user = value.user;
 
         if (user != null) {
-          String uid = user.uid;
-          final userdoc =
-              await db.collection('BusinessRegistration').doc(uid).get();
+          if (user.emailVerified) {
+            String uid = user.uid;
+            final userdoc =
+                await db.collection('BusinessRegistration').doc(uid).get();
 
-          if (userdoc.exists) {
-            LoginPreference.setPreference(uid);
-            Navigator.of(context).pushAndRemoveUntil(
-                MaterialPageRoute(builder: (context) => const BizbottomNavi()),
-                (route) => false);
-            CSnackbar.showSuccessToast(context, "LOGIN SUCCESS");
+            if (userdoc.exists) {
+              LoginPreference.setPreference(uid);
+              Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(
+                      builder: (context) => const BizbottomNavi()),
+                  (route) => false);
+              CSnackbar.showSuccessToast(context, "LOGIN SUCCESS");
+            } else {
+              LoginPreference.setPreference(uid);
+
+              Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(
+                      builder: (context) => const ResellerbottomNavi()),
+                  (route) => false);
+
+              CSnackbar.showSuccessToast(context, "LOGIN SUCCESS");
+            }
           } else {
-            LoginPreference.setPreference(uid);
-
-            Navigator.of(context).pushAndRemoveUntil(
-                MaterialPageRoute(
-                    builder: (context) => const ResellerbottomNavi()),
-                (route) => false);
-
-            CSnackbar.showSuccessToast(context, "LOGIN SUCCESS");
+            CSnackbar.showErrorToast(context, "Verify your email!");
+            user.sendEmailVerification().then((value) {
+              auth.signOut();
+            });
           }
         }
       });
@@ -87,37 +105,8 @@ class AuthControoler with ChangeNotifier {
     }
   }
 
-  // Future signinUser(email, password, BuildContext context) async {
-  //   try {
-  //     UserCredential credential = await auth.signInWithEmailAndPassword(
-  //         email: email, password: password);
-
-  //     User? user = credential.user;
-
-  //     if (user != null) {
-  //       String uid = credential.user!.uid;
-  //       final userdoc = await db.collection('userregitreation').doc(uid).get();
-
-  //       if (userdoc.exists) {
-  //         Navigator.of(context)
-  //             .push(MaterialPageRoute(builder: (context) => BizbottomNavi()));
-  //       } else {
-  //         Navigator.push(
-  //           context,
-  //           MaterialPageRoute(
-  //             builder: (context) => Check(),
-  //           ),
-  //         );
-  //       }
-  //     }
-  //   } catch (e) {
-  //     throw e.toString();
-  //   }
-  // }
-
   Future userRegitration(
     email,
-    
     password,
     context,
     img,
@@ -135,9 +124,16 @@ class AuthControoler with ChangeNotifier {
       )
           .then(
         (value) {
+          value.user!.sendEmailVerification().then((value) {
+            log("success");
+            // CSnackbar.showSuccessToast(context, "Verify your email");
+          }).catchError((error) {
+            // CSnackbar.showErrorToast(context, error.toString());
+            log("error");
+          });
           authprvdr.addsellerRegister(
               UserRegModel(
-                contactNumber:phonenumber ,
+                contactNumber: phonenumber,
                 joinDate: date,
                 email: email,
                 name: name,
@@ -161,4 +157,6 @@ class AuthControoler with ChangeNotifier {
       throw e.toString();
     }
   }
+
+
 }

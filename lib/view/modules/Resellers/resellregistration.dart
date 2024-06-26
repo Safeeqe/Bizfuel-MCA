@@ -143,8 +143,11 @@ class _ResellregistrationState extends State<Resellregistration> {
                                 ),
                                 const SizedBox(height: 15),
                                 TextFormField(
+                                  keyboardType: TextInputType.number
+                                  ,
                                   controller: phoneController,
                                   decoration: const InputDecoration(
+                                    helperMaxLines: 10,
                                     filled: true,
                                     hintText: "Contact Number",
                                     fillColor: Colors.white,
