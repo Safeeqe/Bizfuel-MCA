@@ -8,29 +8,29 @@ class Example extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Business Types'),
+          title: const Text('Business Types'),
         ),
         body: ListView(
           children: <Widget>[
-            ListTile(
+            const ListTile(
               title: Text('Cars'),
             ),
-            ListTile(
+            const ListTile(
               title: Text('Properties'),
             ),
-            ListTile(
-              title: Text('Mobiles'),
+            const ListTile(
+              title: const Text('Mobiles'),
             ),
-            ListTile(
+            const ListTile(
               title: Text('Fasition'),
             ),
-            ListTile(
+            const ListTile(
               title: Text('Bikes'),
             ),
-            ListTile(
+            const ListTile(
               title: Text('Watches'),
             ),
-            ListTile(
+            const ListTile(
               title: Text('Shoes'),
             ),
           ],
