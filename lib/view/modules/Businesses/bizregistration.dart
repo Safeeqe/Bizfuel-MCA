@@ -302,14 +302,23 @@ class _BizregistrationState extends State<Bizregistration> {
                                                     context,
                                                     "Image not picked");
                                               } else {
-                                                authprov.businessRegistration(
+                                                authprov
+                                                    .businessRegistration(
                                                   emailcontroller.text,
                                                   passwordcontroller.text,
                                                   context,
                                                   businessnamecontroller.text,
                                                   firehelper.url,
                                                   phnocontroller.text,
-                                                );
+                                                )
+                                                    .then((value) {
+                                                  emailcontroller.clear();
+                                                  passwordcontroller.clear();
+                                                  businessnamecontroller
+                                                      .clear();
+                                                  firehelper.clearUrl();
+                                                  phnocontroller.clear();
+                                                });
                                               }
                                             }
                                           },

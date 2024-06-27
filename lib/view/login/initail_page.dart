@@ -1,5 +1,6 @@
 import 'package:bizfuel/utils/login_preference.dart';
 import 'package:bizfuel/utils/string.dart';
+import 'package:bizfuel/view/login/lets_go.dart';
 import 'package:bizfuel/view/login/welcome.dart';
 import 'package:bizfuel/view/modules/Businesses/buzbottomsheet.dart';
 import 'package:bizfuel/view/modules/Resellers/resellerbottomNavi.dart';
@@ -9,18 +10,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class Letsgo extends StatefulWidget {
-  const Letsgo({super.key});
+class InitailPage extends StatefulWidget {
+  const InitailPage({super.key});
 
   @override
-  State<Letsgo> createState() => _LetsgoState();
+  State<InitailPage> createState() => _InitailPageState();
 }
 
-class _LetsgoState extends State<Letsgo> {
+class _InitailPageState extends State<InitailPage> {
   final db = FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 2)).then((value) async {
+      // LoginPreference.clearPreference(context);
       final preference = await LoginPreference.getPreference();
 
       if (kIsWeb) {
@@ -41,7 +43,7 @@ class _LetsgoState extends State<Letsgo> {
           Navigator.push(
               // ignore: use_build_context_synchronously
               context,
-              MaterialPageRoute(builder: (context) => const WelcomePage()));
+              MaterialPageRoute(builder: (context) => const Letsgo()));
         } else {
           final userdoc =
               await db.collection('BusinessRegistration').doc(preference).get();

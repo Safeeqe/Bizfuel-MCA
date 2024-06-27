@@ -3,6 +3,9 @@ import 'dart:developer';
 import 'package:bizfuel/utils/login_preference.dart';
 import 'package:bizfuel/view/login/login.dart';
 import 'package:bizfuel/view/modules/Resellers/edit_user_profile.dart';
+import 'package:bizfuel/view/modules/admin/feedbackpage.dart';
+import 'package:bizfuel/view/widgets/cus_rating.dart';
+import 'package:bizfuel/view/widgets/feedback_page.dart';
 import 'package:bizfuel/viewmodel/firebasehelper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -79,6 +82,13 @@ class _ResellerProfileState extends State<ResellerProfile> {
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    CustomRating(
+                        initalRating: CustomRating.ratings(
+                            provider.selectedUserData!.rating.toDouble()),
+                        isConst: true),
                     Padding(
                       padding: const EdgeInsets.only(top: 45),
                       child: Container(
@@ -165,6 +175,10 @@ class _ResellerProfileState extends State<ResellerProfile> {
                           builder: (context, helper, child) {
                             return GestureDetector(
                               onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => FeebackPage(
+                                          module: "Reseller",
+                                        )));
                               },
                               child: Container(
                                 height: 45,

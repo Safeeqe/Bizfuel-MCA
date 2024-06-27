@@ -1,24 +1,25 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class FeedbackModel {
-  String feedbackId;
-  String uid;
+  String ?feedbackId;
+  String? uid;
   String fromModule;
   String feedbackMessage;
-  Timestamp timestamp;
+  Timestamp ?timestamp;
 
   FeedbackModel(
       {required this.feedbackMessage,
       required this.fromModule,
-      required this.timestamp,
-      required this.feedbackId,
-      required this.uid});
+       this.timestamp,
+       this.feedbackId,
+       this.uid});
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson(id) => {
         "feedbackMessage": feedbackMessage,
-        "uid": uid,
+        "uid": FirebaseAuth.instance.currentUser!.uid,
         "fromModule": fromModule,
-        "feedbackId": feedbackId,
+        "feedbackId": id,
         "timestamp": Timestamp.now()
       };
 

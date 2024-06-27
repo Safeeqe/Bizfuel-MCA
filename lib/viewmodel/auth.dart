@@ -133,6 +133,7 @@ class AuthControoler with ChangeNotifier {
           });
           authprvdr.addsellerRegister(
               UserRegModel(
+                rating: 0,
                 contactNumber: phonenumber,
                 joinDate: date,
                 email: email,
@@ -157,6 +158,4 @@ class AuthControoler with ChangeNotifier {
       throw e.toString();
     }
   }
-
-
 }
